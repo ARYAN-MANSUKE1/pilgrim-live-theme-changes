@@ -1,0 +1,106 @@
+--- a/inc/acf.php
++++ b/inc/acf.php
+@@ -114,4 +114,102 @@
+ }
+ add_action( 'init', 'pds_maybe_register_temple_cpt', 5 );
+ 
+-
++/**
++ * Register the 7 pipeline languages ACF never had a field group for
++ * (Gujarati, Tamil, Telugu, Malayalam, Kannada, Bengali, Punjabi).
++ *
++ * The data was already being written to these exact postmeta keys by
++ * app/tasks/wp_client.py (CONTENT_FIELD_KEYS / TITLE_FIELD_KEYS) and
++ * get_field() was already reading it via ACF's raw-meta fallback for an
++ * unregistered field -- that's why the front end works. This just makes
++ * WordPress admin (and the REST "acf" object) aware these fields exist, so
++ * they show up as editable boxes on the temple edit screen instead of being
++ * invisible there. show_in_rest exposes them over the API the same way
++ * marathi_title etc. already are.
++ */
++add_action( 'acf/init', 'pds_register_missing_language_fields' );
++function pds_register_missing_language_fields() {
++	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
++		return;
++	}
++
++	$languages = array(
++		'gujarati'  => 'Gujarati',
++		'tamil'     => 'Tamil',
++		'telugu'    => 'Telugu',
++		'malayalam' => 'Malayalam',
++		'kannada'   => 'Kannada',
++		'bengali'   => 'Bengali',
++		'punjabi'   => 'Punjabi',
++	);
++
++	$fields = array();
++	foreach ( $languages as $slug => $label ) {
++		$fields[] = array(
++			'key'          => 'field_pds_' . $slug . '_title',
++			'name'         => $slug . '_title',
++			'label'        => $label . ' Title',
++			'type'         => 'text',
++		);
++		$fields[] = array(
++			'key'          => 'field_pds_' . $slug . '_content',
++			'name'         => $slug . '_content',
++			'label'        => $label . ' Content',
++			'type'         => 'wysiwyg',
++			'tabs'         => 'all',
++			'toolbar'      => 'full',
++			'media_upload' => 1,
++		);
++		$fields[] = array(
++			'key'           => 'field_pds_' . $slug . '_audio',
++			'name'          => $slug . '_audio',
++			'label'         => $label . ' Audio',
++			'type'          => 'file',
++			'return_format' => 'array',
++		);
++	}
++
++	// english_title and the audio fields for Marathi/English/Hindi were never
++	// registered anywhere on live -- unlike the other core-language fields
++	// (marathi_title, hindi_title, mr/en/hi_translation), which some earlier,
++	// now-gone setup already registered. Confirmed via a direct REST check:
++	// migrate_to_live.py's preflight refused to run because these 4 specific
++	// keys were absent from live's "acf" REST object (WordPress silently
++	// drops unregistered ACF keys on write, so this must exist before the
++	// migration can copy real audio/title data into them). Staging already
++	// has all 4, so this only needs adding here.
++	$fields[] = array(
++		'key'   => 'field_pds_english_title',
++		'name'  => 'english_title',
++		'label' => 'English Title',
++		'type'  => 'text',
++	);
++	foreach ( array( 'marathi', 'english', 'hindi' ) as $slug ) {
++		$fields[] = array(
++			'key'           => 'field_pds_' . $slug . '_audio_core',
++			'name'          => $slug . '_audio',
++			'label'         => ucfirst( $slug ) . ' Audio',
++			'type'          => 'file',
++			'return_format' => 'array',
++		);
++	}
++
++	acf_add_local_field_group(
++		array(
++			'key'          => 'group_pds_extra_languages',
++			'title'        => 'Temple Fields (additional pipeline languages)',
++			'fields'       => $fields,
++			'location'     => array(
++				array(
++					array(
++						'param'    => 'post_type',
++						'operator' => '==',
++						'value'    => 'temple',
++					),
++				),
++			),
++			'show_in_rest' => 1,
++		)
++	);
++}
++

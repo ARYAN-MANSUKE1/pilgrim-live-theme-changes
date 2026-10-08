@@ -1,0 +1,100 @@
+--- a/footer.php
++++ b/footer.php
+@@ -15,52 +15,14 @@
+ $year        = gmdate( 'Y' );
+ 
+ $social_links = array(
+-	array(
+-		'url'   => '#',
+-		'icon'  => 'fa-instagram',
+-		'label' => array(
+-			'mr' => 'इंस्टाग्राम',
+-			'en' => 'Instagram',
+-			'hi' => 'इंस्टाग्राम',
+-		),
+-	),
+-	array(
+-		'url'   => '#',
+-		'icon'  => 'fa-facebook',
+-		'label' => array(
+-			'mr' => 'फेसबुक',
+-			'en' => 'Facebook',
+-			'hi' => 'फेसबुक',
+-		),
+-	),
+-	array(
+-		'url'   => '#',
+-		'icon'  => 'fa-youtube-play',
+-		'label' => array(
+-			'mr' => 'यूट्यूब',
+-			'en' => 'YouTube',
+-			'hi' => 'यूट्यूब',
+-		),
+-	),
++	array( 'url' => '#', 'icon' => 'fa-instagram', 'label' => 'instagram' ),
++	array( 'url' => '#', 'icon' => 'fa-facebook', 'label' => 'facebook' ),
++	array( 'url' => '#', 'icon' => 'fa-youtube-play', 'label' => 'youtube' ),
+ );
+ 
+ $legal_links = array(
+-	array(
+-		'url'   => '#',
+-		'label' => array(
+-			'mr' => 'गोपनीयता',
+-			'en' => 'Privacy Policy',
+-			'hi' => 'गोपनीयता नीति',
+-		),
+-	),
+-	array(
+-		'url'   => '#',
+-		'label' => array(
+-			'mr' => 'अटी व शर्ती',
+-			'en' => 'Terms & Conditions',
+-			'hi' => 'नियम एवं शर्तें',
+-		),
+-	),
++	array( 'url' => '#', 'label' => 'privacy' ),
++	array( 'url' => '#', 'label' => 'terms' ),
+ );
+ ?>
+ <footer
+@@ -80,9 +42,7 @@
+ 				<?php foreach ( $legal_links as $legal ) : ?>
+ 					<li>
+ 						<a href="<?php echo esc_url( $legal['url'] ); ?>">
+-							<span class="mr_lang dis_lang" style="display: block;"><?php echo esc_html( $legal['label']['mr'] ); ?></span>
+-							<span class="en_lang dis_lang" style="display: none;"><?php echo esc_html( $legal['label']['en'] ); ?></span>
+-							<span class="hi_lang dis_lang" style="display: none;"><?php echo esc_html( $legal['label']['hi'] ); ?></span>
++							<?php echo pds_lang_blocks( $legal['label'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside ?>
+ 						</a>
+ 					</li>
+ 				<?php endforeach; ?>
+@@ -94,9 +54,7 @@
+ 				<?php foreach ( $social_links as $social ) : ?>
+ 					<a href="<?php echo esc_url( $social['url'] ); ?>"<?php echo '#' !== $social['url'] ? ' target="_blank" rel="noopener noreferrer"' : ''; ?>>
+ 						<i class="fa <?php echo esc_attr( $social['icon'] ); ?>" aria-hidden="true"></i>
+-						<span class="mr_lang dis_lang" style="display: block;"><?php echo esc_html( $social['label']['mr'] ); ?></span>
+-						<span class="en_lang dis_lang" style="display: none;"><?php echo esc_html( $social['label']['en'] ); ?></span>
+-						<span class="hi_lang dis_lang" style="display: none;"><?php echo esc_html( $social['label']['hi'] ); ?></span>
++						<?php echo pds_lang_blocks( $social['label'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside ?>
+ 					</a>
+ 				<?php endforeach; ?>
+ 			</div>
+@@ -111,9 +69,9 @@
+ 		<div class="footer-copy">
+ 			<hr class="footer-divider" aria-hidden="true">
+ 			<div class="copyright">
+-				<p class="mr_lang dis_lang" style="display: block;">@<?php echo esc_html( $year ); ?> पिलग्रिम डेटा सर्व्हिसेस | सर्व हक्क राखीव.</p>
+-				<p class="en_lang dis_lang" style="display: none;">@<?php echo esc_html( $year ); ?> Pilgrim Data Services | All Rights Reserved.</p>
+-				<p class="hi_lang dis_lang" style="display: none;">@<?php echo esc_html( $year ); ?> पिलग्रिम डेटा सर्विसेस | सर्वाधिकार सुरक्षित।</p>
++				<?php foreach ( array_keys( pds_get_temple_languages() ) as $pds_code ) : ?>
++					<p class="<?php echo esc_attr( $pds_code ); ?>_lang dis_lang" style="display: <?php echo 'mr' === $pds_code ? 'block' : 'none'; ?>;">@<?php echo esc_html( $year ); ?> <?php echo esc_html( pds_t( 'rights', $pds_code ) ); ?></p>
++				<?php endforeach; ?>
+ 			</div>
+ 		</div>
+ 	</div>
+@@ -126,4 +84,3 @@
+ </body>
+ </html>
+ 
+-

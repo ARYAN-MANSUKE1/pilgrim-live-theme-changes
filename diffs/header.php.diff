@@ -1,0 +1,20 @@
+--- a/header.php
++++ b/header.php
+@@ -47,9 +47,9 @@
+ 				<div class="header-translator">
+ 					<label class="screen-reader-text" for="language-select"><?php esc_html_e( 'Language', 'pilgrim-data-services' ); ?></label>
+ 					<select id="language-select">
+-						<option value="mr">मराठी</option>
+-						<option value="en">English</option>
+-						<option value="hi">हिन्दी</option>
++						<?php foreach ( pds_get_temple_languages() as $pds_hdr_lang_code => $pds_hdr_lang ) : ?>
++							<option value="<?php echo esc_attr( $pds_hdr_lang_code ); ?>"><?php echo esc_html( $pds_hdr_lang['label'] ); ?></option>
++						<?php endforeach; ?>
+ 					</select>
+ 				</div>
+ 
+@@ -77,4 +77,3 @@
+ 	</div>
+ </header>
+ 
+-

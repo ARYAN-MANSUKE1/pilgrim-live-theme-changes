@@ -1,0 +1,122 @@
+--- a/inc/template-tags.php
++++ b/inc/template-tags.php
+@@ -4,6 +4,10 @@
+  *
+  * @package Pilgrim_Data_Services
+  */
++
++if ( ! defined( 'ABSPATH' ) ) {
++	exit;
++}
+ 
+ /**
+  * URL for a media filename, even if it was re-uploaded to a new month folder.
+@@ -78,9 +82,6 @@
+ function pds_skip_lazy_attr() {
+ 	return 'data-no-lazy="1" data-skip-lazy="1"';
+ }
+-if ( ! defined( 'ABSPATH' ) ) {
+-	exit;
+-}
+ 
+ /**
+  * Safe ACF field getter with fallback.
+@@ -113,24 +114,76 @@
+ 			'name'  => __( 'Marathi', 'pilgrim-data-services' ),
+ 			'field' => 'mr_translation',
+ 			'title' => 'marathi_title',
++			'audio' => 'marathi_audio',
+ 		),
+ 		'en' => array(
+ 			'label' => 'English',
+ 			'name'  => __( 'English', 'pilgrim-data-services' ),
+ 			'field' => 'en_translation',
+-			'title' => '',
++			'title' => 'english_title',
++			'audio' => 'english_audio',
+ 		),
+ 		'hi' => array(
+ 			'label' => 'हिन्दी',
+ 			'name'  => __( 'Hindi', 'pilgrim-data-services' ),
+ 			'field' => 'hi_translation',
+ 			'title' => 'hindi_title',
+-		),
++			'audio' => 'hindi_audio',
++		),
++		// ponytail: field names below match app/tasks/wp_client.py's
++		// CONTENT_FIELD_KEYS / TITLE_FIELD_KEYS exactly -- the pipeline writes
++		// to these, not to a "{code}_translation" pattern. Gujarati was
++		// previously pointed at gj_translation / gujrati_title (typo'd,
++		// neither field the pipeline ever wrote to), so it silently showed
++		// nothing despite data existing under gujarati_content.
+ 		'gj' => array(
+ 			'label' => 'ગુજરાતી',
+ 			'name'  => __( 'Gujarati', 'pilgrim-data-services' ),
+-			'field' => 'gj_translation',
+-			'title' => 'gujrati_title',
++			'field' => 'gujarati_content',
++			'title' => 'gujarati_title',
++			'audio' => 'gujarati_audio',
++		),
++		'ta' => array(
++			'label' => 'தமிழ்',
++			'name'  => __( 'Tamil', 'pilgrim-data-services' ),
++			'field' => 'tamil_content',
++			'title' => 'tamil_title',
++			'audio' => 'tamil_audio',
++		),
++		'te' => array(
++			'label' => 'తెలుగు',
++			'name'  => __( 'Telugu', 'pilgrim-data-services' ),
++			'field' => 'telugu_content',
++			'title' => 'telugu_title',
++			'audio' => 'telugu_audio',
++		),
++		'ml' => array(
++			'label' => 'മലയാളം',
++			'name'  => __( 'Malayalam', 'pilgrim-data-services' ),
++			'field' => 'malayalam_content',
++			'title' => 'malayalam_title',
++			'audio' => 'malayalam_audio',
++		),
++		'kn' => array(
++			'label' => 'ಕನ್ನಡ',
++			'name'  => __( 'Kannada', 'pilgrim-data-services' ),
++			'field' => 'kannada_content',
++			'title' => 'kannada_title',
++			'audio' => 'kannada_audio',
++		),
++		'bn' => array(
++			'label' => 'বাংলা',
++			'name'  => __( 'Bengali', 'pilgrim-data-services' ),
++			'field' => 'bengali_content',
++			'title' => 'bengali_title',
++			'audio' => 'bengali_audio',
++		),
++		'pa' => array(
++			'label' => 'ਪੰਜਾਬੀ',
++			'name'  => __( 'Punjabi', 'pilgrim-data-services' ),
++			'field' => 'punjabi_content',
++			'title' => 'punjabi_title',
++			'audio' => 'punjabi_audio',
+ 		),
+ 	);
+ 
+@@ -318,6 +371,12 @@
+ 
+ 	if ( isset( $messages[ $lang ] ) ) {
+ 		return $messages[ $lang ];
++	}
++	if ( function_exists( 'pds_t' ) && 'en' !== $lang ) {
++		$translated = pds_t( 'unavailable', $lang );
++		if ( '' !== $translated && $translated !== pds_t( 'unavailable', 'en' ) ) {
++			return $translated;
++		}
+ 	}
+ 
+ 	$languages = pds_get_temple_languages();
+@@ -560,4 +619,3 @@
+ }
+ add_action( 'customize_register', 'pds_customize_register' );
+ 
+-

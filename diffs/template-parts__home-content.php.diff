@@ -1,0 +1,288 @@
+--- a/template-parts/home-content.php
++++ b/template-parts/home-content.php
+@@ -16,38 +16,22 @@
+ 	array(
+ 		'slug'  => 'maharashtra',
+ 		'image' => $uploads . '/2025/03/Maharashtra.png',
+-		'label' => array(
+-			'mr' => 'महाराष्ट्र',
+-			'en' => 'Maharashtra',
+-			'hi' => 'महाराष्ट्र',
+-		),
++		'label' => 'st_maharashtra',
+ 	),
+ 	array(
+ 		'slug'  => 'gujarat',
+ 		'image' => $uploads . '/2025/03/Gujarat-1-1.png',
+-		'label' => array(
+-			'mr' => 'गुजरात',
+-			'en' => 'Gujarat',
+-			'hi' => 'गुजरात',
+-		),
++		'label' => 'st_gujarat',
+ 	),
+ 	array(
+ 		'slug'  => 'madya-pradesh',
+ 		'image' => $uploads . '/2025/11/mp-map.png',
+-		'label' => array(
+-			'mr' => 'मध्य प्रदेश',
+-			'en' => 'Madhya Pradesh',
+-			'hi' => 'मध्य प्रदेश',
+-		),
++		'label' => 'st_madhya-pradesh',
+ 	),
+ 	array(
+ 		'slug'  => 'goa',
+ 		'image' => $uploads . '/2025/11/goa.png',
+-		'label' => array(
+-			'mr' => 'गोवा',
+-			'en' => 'Goa',
+-			'hi' => 'गोवा',
+-		),
++		'label' => 'st_goa',
+ 	),
+ );
+ 
+@@ -55,56 +39,32 @@
+ 	array(
+ 		'slug'  => 'pune',
+ 		'image' => $uploads . '/2024/05/Group-2384.png',
+-		'label' => array(
+-			'mr' => 'पुणे',
+-			'en' => 'Pune',
+-			'hi' => 'पुना',
+-		),
++		'label' => 'ct_pune',
+ 	),
+ 	array(
+ 		'slug'  => 'mumbai',
+ 		'image' => $uploads . '/2024/05/Group-2387.png',
+-		'label' => array(
+-			'mr' => 'मुंबई',
+-			'en' => 'Mumbai',
+-			'hi' => 'मुंबई',
+-		),
++		'label' => 'ct_mumbai',
+ 	),
+ 	array(
+ 		'slug'  => 'nashik',
+ 		'image' => $uploads . '/2024/05/Group-2403-1.png',
+-		'label' => array(
+-			'mr' => 'नाशिक',
+-			'en' => 'Nashik',
+-			'hi' => 'नासिक',
+-		),
++		'label' => 'ct_nashik',
+ 	),
+ 	array(
+ 		'slug'  => 'satara',
+ 		'image' => $uploads . '/2024/05/Group-2406-1.png',
+-		'label' => array(
+-			'mr' => 'सातारा',
+-			'en' => 'Satara',
+-			'hi' => 'सतारा',
+-		),
++		'label' => 'ct_satara',
+ 	),
+ 	array(
+ 		'slug'  => 'solapur',
+ 		'image' => $uploads . '/2024/05/Group-2405-1.png',
+-		'label' => array(
+-			'mr' => 'सोलापूर',
+-			'en' => 'Solapur',
+-			'hi' => 'सोलापुर',
+-		),
++		'label' => 'ct_solapur',
+ 	),
+ 	array(
+ 		'slug'  => 'kolhapur',
+ 		'image' => $uploads . '/2024/05/Group-2404-1.png',
+-		'label' => array(
+-			'mr' => 'कोल्हापूर',
+-			'en' => 'Kolhapur',
+-			'hi' => 'कोल्हापुर',
+-		),
++		'label' => 'ct_kolhapur',
+ 	),
+ );
+ 
+@@ -168,51 +128,27 @@
+ $gallery_images = array(
+ 	array(
+ 		'image' => $uploads . '/2024/06/IMG_3183.jpg',
+-		'title' => array(
+-			'mr' => 'विघ्नहर्ता गणेश मंदिर, ओझर, पुणे',
+-			'en' => 'Vignaharta Ganesh Temple, Ozar, Pune',
+-			'hi' => 'विघ्नहर्ता गणेश मंदिर, ओझर, पुणे',
+-		),
++		'title' => 'g_ozar',
+ 	),
+ 	array(
+ 		'image' => $uploads . '/2024/06/IMG_2393-min.jpg',
+-		'title' => array(
+-			'mr' => 'विघ्नहर्ता गणेश मंदिर, ओझर, पुणे',
+-			'en' => 'Vignaharta Ganesh Temple, Ozar, Pune',
+-			'hi' => 'विघ्नहर्ता गणेश मंदिर, ओझर, पुणे',
+-		),
++		'title' => 'g_ozar',
+ 	),
+ 	array(
+ 		'image' => $uploads . '/2024/06/Tarkeshwar-temple-Yerawda8-1.jpg',
+-		'title' => array(
+-			'mr' => 'तारकेश्वर मंदिर, पुणे',
+-			'en' => 'Tarkeshwar Temple, Pune',
+-			'hi' => 'तारकेश्वर मंदिर, पुणे',
+-		),
++		'title' => 'g_tarkeshwar',
+ 	),
+ 	array(
+ 		'image' => $uploads . '/2024/06/मल्लिकार्जू-मंदिर-लोणी-भापकर10-min.jpg',
+-		'title' => array(
+-			'mr' => 'मल्लिकार्जुन मंदिर, लोणी-भापकर, पुणे',
+-			'en' => 'Mallikarjun Temple, Loni-Bhapkar, Pune',
+-			'hi' => 'मल्लिकार्जुन मंदिर, लोणी-भापकर, पुणे',
+-		),
++		'title' => 'g_mallikarjun',
+ 	),
+ 	array(
+ 		'image' => $uploads . '/2024/06/Purandar-Temple1-min.png',
+-		'title' => array(
+-			'mr' => 'पुरंदर मंदिर, पुणे',
+-			'en' => 'Purandar Temple, Pune',
+-			'hi' => 'पुरंदर मंदिर, पुणे',
+-		),
++		'title' => 'g_purandar',
+ 	),
+ 	array(
+ 		'image' => $uploads . '/2024/06/IMG_3684.jpg',
+-		'title' => array(
+-			'mr' => 'विठ्ठल मंदिर, दौंड, पुणे',
+-			'en' => 'Vitthal Mandir, Daund, Pune',
+-			'hi' => 'विठ्ठल मंदिर, दौंड, पुणे',
+-		),
++		'title' => 'g_vitthal',
+ 	),
+ );
+ 
+@@ -260,32 +196,22 @@
+ 	<section class="ph-about" id="about">
+ 		<div class="ph-container">
+ 			<div class="ph-about__intro">
+-				<div class="mr_lang dis_lang" style="display: block;">
+-					<h2 class="ph-section-title">माहिती</h2>
+-					<p>भारत ही लौकिकतेबरोबरच पारलौकिक विचारांची, अर्थ आणि काम या पुरूषार्थांबरोबरच अध्यात्माचीही भूमी आहे. मातृस्वरूप नद्या, पर्वत, तीर्थक्षेत्रे ही येथील अध्यात्मिक धरोहर आहे. नानाविध देवालयांमुळे या भूमीस परम पावित्र्य लाभलेले आहे. धार्मिक महत्त्व, तसेच वैशिष्ट्यपूर्ण स्थापत्य यांनी यांतील अनेक मंदिरे भाविकांना साद घालीत असतात. आजच्या माहिती-तंत्रज्ञानाच्या आधुनिक युगातही या मंदिरांचे विविध पैलू अनेकांस अज्ञात आहेत.</p>
+-					<p>ईश्वरी आशीर्वाद आणि दैवी शांततेच्या शोधात असणाऱ्या भाविकांना अशा खास देवस्थानांची, त्यांच्या धार्मिक महत्तेची आणि वैशिष्ट्यांची ओळख करून देणे हीसुद्धा एक ईश्वरसेवाच. याच भावनेने या संकेतस्थळावरून देशभरातील विविध धार्मिक वैशिष्ट्यांनी नटलेल्या मंदिरांची, तीर्थस्थानांची माहिती देण्याचा आमचा संकल्प आहे. सादर आहे त्यातीलच ही काही मंदिरांची माहिती…</p>
+-				</div>
+-				<div class="en_lang dis_lang" style="display: none;">
+-					<h2 class="ph-section-title">About Us</h2>
+-					<p>India is not only a land of worldly prosperity but also a land of spiritual contemplation. It is a land that values both <em>Artha</em> (wealth), <em>Kama</em> (desire), and <em>Adhyatma</em> (spirituality). Rivers, mountains, and pilgrimage sites, which are revered in a motherly form, are an integral part of its rich spiritual heritage. The countless temples spread across this land have bestowed upon it the highest level of sanctity. Because of their religious significance and unique architectural beauty, many of these temples continue to attract and inspire devotees even today. Yet, even in today’s digital age, much about their history and spiritual importance remains unexplored.</p>
+-					<p>Introducing devotees to such sacred temples is itself a noble act of service to the Divine. Through this platform, we strive to connect devotees seeking divine blessings and inner peace with these holy places—celebrating their faith, cultural values, and the grandeur of their architectural heritage. Here, you will find information about some of the most remarkable temples of India, each reflecting the country’s enduring spiritual spirit.</p>
+-				</div>
+-				<div class="hi_lang dis_lang" style="display: none;">
+-					<h2 class="ph-section-title">जानकारी</h2>
+-					<p>भारत न केवल सांसारिक सुखों की भूमि है, बल्कि आध्यात्मिक चिंतन की भी भूमि है। यह वह भूमि है जो अर्थ (धन), काम (इच्छा) और अध्यात्म (आध्यात्मिकता) दोनों को महत्व देती है। नदियाँ, पर्वत और तीर्थ स्थल, जिन्हें मातृ रूप में पूजा जाता है, इसकी समृद्ध आध्यात्मिक विरासत का हिस्सा हैं। इस भूमि पर फैले असंख्य मंदिरों ने इसे सर्वोच्च पवित्रता प्रदान की है। अपने धार्मिक महत्व और विशिष्ट वास्तुकला के कारण, इनमें से कई मंदिर आज भी भक्तों को आकर्षित और प्रेरित करते हैं। फिर भी, आज के डिजिटल युग में भी, इनके इतिहास और आध्यात्मिक महत्व के बारे में बहुत कुछ अनछुआ ही है।</p>
+-					<p>भक्तों को ऐसे पवित्र मंदिरों से परिचित कराना स्वयं ईश्वर की सेवा का एक महान कार्य है। इस मंच के माध्यम से, हम दिव्य आशीर्वाद और आंतरिक शांति की तलाश करने वाले भक्तों को इन पवित्र स्थलों से जोड़ने का प्रयास करते हैं - इनके विश्वास, सांस्कृतिक मूल्य और स्थापत्य कला की भव्यता का जश्न मनाते हुए। यहाँ, आपको भारत के कुछ सबसे उल्लेखनीय मंदिरों की जानकारी मिलेगी, जिनमें से प्रत्येक देश की चिरस्थायी आध्यात्मिक भावना का प्रतिबिंब है…</p>
+-				</div>
++				<?php foreach ( array_keys( pds_get_temple_languages() ) as $pds_code ) : ?>
++					<div class="<?php echo esc_attr( $pds_code ); ?>_lang dis_lang" style="display: <?php echo 'mr' === $pds_code ? 'block' : 'none'; ?>;">
++						<h2 class="ph-section-title"><?php echo esc_html( pds_t( 'about_title', $pds_code ) ); ?></h2>
++						<p><?php echo wp_kses_post( pds_t( 'about_p1', $pds_code ) ); ?></p>
++						<p><?php echo wp_kses_post( pds_t( 'about_p2', $pds_code ) ); ?></p>
++					</div>
++				<?php endforeach; ?>
+ 			</div>
+ 
+ 			<div class="ph-explore about-cities">
+ 				<div class="ph-states">
+ 					<?php foreach ( $states as $state ) : ?>
+ 						<a class="ph-explore__item" href="<?php echo esc_url( home_url( '/city/' . $state['slug'] . '/' ) ); ?>">
+-							<img src="<?php echo esc_url( $state['image'] ); ?>" alt="<?php echo esc_attr( $state['label']['en'] . ' | Temples in India' ); ?>" loading="lazy" width="190" height="152">
++							<img src="<?php echo esc_url( $state['image'] ); ?>" alt="<?php echo esc_attr( pds_t( $state['label'], 'en' ) . ' | Temples in India' ); ?>" loading="lazy" width="190" height="152">
+ 							<span class="ph-explore__caption widget-image-caption">
+-								<span class="mr_lang dis_lang" style="display: block;"><?php echo esc_html( $state['label']['mr'] ); ?></span>
+-								<span class="en_lang dis_lang" style="display: none;"><?php echo esc_html( $state['label']['en'] ); ?></span>
+-								<span class="hi_lang dis_lang" style="display: none;"><?php echo esc_html( $state['label']['hi'] ); ?></span>
++								<?php echo pds_lang_blocks( $state['label'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside ?>
+ 							</span>
+ 						</a>
+ 					<?php endforeach; ?>
+@@ -294,11 +220,9 @@
+ 				<div class="ph-cities">
+ 					<?php foreach ( $cities as $city ) : ?>
+ 						<a class="ph-explore__item" href="<?php echo esc_url( home_url( '/city/' . $city['slug'] . '/' ) ); ?>">
+-							<img src="<?php echo esc_url( $city['image'] ); ?>" alt="<?php echo esc_attr( $city['label']['en'] ); ?>" loading="lazy" width="190" height="152">
++							<img src="<?php echo esc_url( $city['image'] ); ?>" alt="<?php echo esc_attr( pds_t( $city['label'], 'en' ) ); ?>" loading="lazy" width="190" height="152">
+ 							<span class="ph-explore__caption widget-image-caption">
+-								<span class="mr_lang dis_lang" style="display: block;"><?php echo esc_html( $city['label']['mr'] ); ?></span>
+-								<span class="en_lang dis_lang" style="display: none;"><?php echo esc_html( $city['label']['en'] ); ?></span>
+-								<span class="hi_lang dis_lang" style="display: none;"><?php echo esc_html( $city['label']['hi'] ); ?></span>
++								<?php echo pds_lang_blocks( $city['label'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside ?>
+ 							</span>
+ 						</a>
+ 					<?php endforeach; ?>
+@@ -306,9 +230,7 @@
+ 
+ 				<div class="ph-explore__cta">
+ 					<a class="ph-btn" href="<?php echo esc_url( $other_cities_url ); ?>">
+-						<span class="mr_lang dis_lang" style="display: inline;">इतर शहरे</span>
+-						<span class="en_lang dis_lang" style="display: none;">Other Cities</span>
+-						<span class="hi_lang dis_lang" style="display: none;">Other Cities</span>
++						<?php echo pds_lang_blocks( 'other_cities', 'span', '', 'inline' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside ?>
+ 					</a>
+ 				</div>
+ 			</div>
+@@ -318,9 +240,7 @@
+ 	<!-- Famous temples grid -->
+ 	<section class="ph-famous" id="famous-temples">
+ 		<div class="ph-container">
+-			<h2 class="ph-section-title mr_lang dis_lang" style="display: block;">अध्यात्मिक शोधकांसाठी प्रसिद्ध मंदिरे</h2>
+-			<h2 class="ph-section-title en_lang dis_lang" style="display: none;">Famous Temples for Spiritual Explorers</h2>
+-			<h2 class="ph-section-title hi_lang dis_lang" style="display: none;">Famous Temples for Spiritual Explorers</h2>
++			<?php echo pds_lang_blocks( 'famous_title', 'h2', 'ph-section-title' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside ?>
+ 			<?php echo do_shortcode( '[temple_grid]' ); ?>
+ 		</div>
+ 	</section>
+@@ -357,23 +277,19 @@
+ 	<!-- Photo gallery -->
+ 	<section class="ph-gallery gall" id="photo-gallery" aria-label="<?php esc_attr_e( 'Photo Gallery', 'pilgrim-data-services' ); ?>">
+ 		<div class="ph-container">
+-			<h2 class="ph-section-title mr_lang dis_lang" style="display: block;">फोटो गॅलरी</h2>
+-			<h2 class="ph-section-title en_lang dis_lang" style="display: none;">Photo Gallery</h2>
+-			<h2 class="ph-section-title hi_lang dis_lang" style="display: none;">फोटो गॅलरी</h2>
++			<?php echo pds_lang_blocks( 'gallery_title', 'h2', 'ph-section-title' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside ?>
+ 
+ 			<div class="ph-gallery__grid">
+ 				<?php foreach ( $gallery_images as $item ) : ?>
+ 					<a
+ 						href="<?php echo esc_url( $item['image'] ); ?>"
+ 						data-fancybox="home-gallery"
+-						data-caption="<?php echo esc_attr( $item['title']['en'] ); ?>"
++						data-caption="<?php echo esc_attr( pds_t( $item['title'], 'en' ) ); ?>"
+ 						class="ph-gallery__item"
+ 					>
+-						<img src="<?php echo esc_url( $item['image'] ); ?>" alt="<?php echo esc_attr( $item['title']['en'] ); ?>" loading="lazy">
++						<img src="<?php echo esc_url( $item['image'] ); ?>" alt="<?php echo esc_attr( pds_t( $item['title'], 'en' ) ); ?>" loading="lazy">
+ 						<span class="ph-gallery__caption">
+-							<span class="mr_lang dis_lang" style="display: block;"><?php echo esc_html( $item['title']['mr'] ); ?></span>
+-							<span class="en_lang dis_lang" style="display: none;"><?php echo esc_html( $item['title']['en'] ); ?></span>
+-							<span class="hi_lang dis_lang" style="display: none;"><?php echo esc_html( $item['title']['hi'] ); ?></span>
++							<?php echo pds_lang_blocks( $item['title'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside ?>
+ 						</span>
+ 					</a>
+ 				<?php endforeach; ?>
+@@ -381,9 +297,7 @@
+ 
+ 			<div class="ph-gallery__cta">
+ 				<a class="ph-btn" href="<?php echo esc_url( $view_more_url ); ?>">
+-					<span class="mr_lang dis_lang" style="display: inline;">अधिक पहा</span>
+-					<span class="en_lang dis_lang" style="display: none;">View More</span>
+-					<span class="hi_lang dis_lang" style="display: none;">View More</span>
++					<?php echo pds_lang_blocks( 'view_more', 'span', '', 'inline' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside ?>
+ 				</a>
+ 			</div>
+ 		</div>
+@@ -391,4 +305,3 @@
+ 
+ </main>
+ 
+-
