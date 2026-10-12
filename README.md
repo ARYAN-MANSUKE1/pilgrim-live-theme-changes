@@ -65,7 +65,7 @@ printed once per language as `<div class="{code}_lang dis_lang">`, and the theme
 | `pds_get_matching_ad()`, `pds_display_ad( $slot )` and helpers | Ad system: picks a running ad for the temple's city and the slot (status *active*, date range, target cities; a state includes its districts). Result cached 20 minutes per temple and slot |
 | `pds_ajax_track_click()` + footer script `pdsTrackClick()` | Click counting (`_ad_clicks`). The script is excluded from the 10Web delay; only real Advertisements posts are counted |
 | impression counter in `pds_display_ad()` | `_ad_impressions`. Counts page renders, so cached page views are not counted |
-| `pds_flush_ad_cache()` | Clears the ad cache on every ad save, or at `/?pds_flush_ads=1` as an admin |
+| `pds_flush_ad_cache()` | Clears the ad cache on every ad save, or at `/?pds_flush_ads=1` as an admin. It bumps a version number that is part of every cache key (`pds_ad_cache_ver`), so it also works on hosts with a persistent object cache - live has one, and deleting the cached rows alone left paused or edited ads showing for up to 20 minutes |
 | `register_post_meta(...)` for the ad fields | Lets logged-in editors read and write the ad fields over the REST API (the dashboard's Ads tab). SCF's "Show in REST API" was not used because `/wp/v2/advertisements` is public and would expose campaign prices |
 | `pds-ad-styles` (wp_head) | Ad label and image styles; image height capped at 250px for banners and 600px for side columns, so a wrongly shaped image cannot push the article off screen |
 
@@ -147,16 +147,16 @@ photo. Rule 3 lets two photos sit side by side on desktop.
 | bn | Bengali | `bengali_content` | `bengali_title` | `bengali_audio` |
 | pa | Punjabi | `punjabi_content` | `punjabi_title` | `punjabi_audio` |
 
-## Status on live (checked 6 October 2026)
+## Status on live (checked 12 October 2026)
 
-Live: language popup, audio button, ad system (top / left / right) with click
-tracking, all 10-language changes, CSS rules 1–2, the SCF import and the menu fix.
+Everything in this repository is live on pilgrimdata.in: language popup, audio
+button, the ad system with all four slots (top / left / right / bottom), click and
+impression tracking, the ad image height cap, the REST ad fields for the dashboard,
+all 10-language changes, the three CSS rules, the SCF import and the menu fix.
 
-Not yet pasted:
-- `functions.php`: ad image height cap, REST ad fields.
-- `single-temple.php`: bottom ad slot.
-- CSS: rule 3.
-- SCF: the four Placement choices.
+Verified on live on 12 October with a test campaign (since deleted): shown only in
+the targeted district, moved through all four slots, paused / re-activated / edited
+with immediate effect, click and impression counted, price not publicly visible.
 
 ## Deploying an update
 
